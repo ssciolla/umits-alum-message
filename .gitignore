@@ -1,0 +1,4 @@
+.idea
+alum_message/mysite/secrets.py
+*__pycache__
+*/venv
