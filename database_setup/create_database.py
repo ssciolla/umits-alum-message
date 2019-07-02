@@ -23,30 +23,12 @@ def create_alum_table():
         CREATE TABLE '{}' (
             'alum_id' INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL,
             'uniqname' TEXT NOT NULL UNIQUE,
-            'password' TEXT NOT NULL UNIQUE,
             'display_name' TEXT NOT NULL,
             'family_name' TEXT NOT NULL,
             'given_name' TEXT NOT NULL
             );
     '''.format(table_name)
     conn.execute(alum_statement)
-
-def create_thread_table():
-    conn = sqlite3.connect(DBNAME)
-    cur = conn.cursor()
-    table_name = "thread"
-    drop_statement = '''
-        DROP TABLE IF EXISTS '{}';
-    '''.format(table_name)
-    cur.execute(drop_statement)
-    conn.commit()
-    thread_statement = '''
-        CREATE TABLE '{}' (
-            'thread_id' INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL,
-            'subject' TEXT NOT NULL
-            );
-    '''.format(table_name)
-    conn.execute(thread_statement)
 
 def create_message_table():
     conn = sqlite3.connect(DBNAME)
@@ -60,12 +42,11 @@ def create_message_table():
     message_statement = '''
         CREATE TABLE '{}' (
             'message_id' INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL,
+            'subject' TEXT NOT NULL,
             'message_text' TEXT NOT NULL,
             'timestamp' TEXT NOT NULL,
-            'thread_id' INTEGER NOT NULL,
-            'alum_sender_id' INTEGER NOT NULL,
-            FOREIGN KEY(thread_id) REFERENCES thread(thread_id),
-            FOREIGN KEY(alum_sender_id) REFERENCES alum(alum_id)
+            'sender_alum_id' INTEGER NOT NULL,
+            FOREIGN KEY(sender_alum_id) REFERENCES alum(alum_id)
             );
     '''.format(table_name)
     conn.execute(message_statement)
@@ -96,6 +77,5 @@ if __name__=="__main__":
     # Calling functions to create and populate database tables
     init_alum_message_db()
     create_alum_table()
-    create_thread_table()
     create_message_table()
     create_receipt_table()

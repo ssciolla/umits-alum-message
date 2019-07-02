@@ -8,16 +8,11 @@ class ReceiptInline(admin.TabularInline):
 
 @admin.register(models.Message)
 class MessageAdmin(admin.ModelAdmin):
-    fields = ['alum_sender', 'thread', 'message_text']
-    list_display = ['timestamp', 'alum_sender', 'thread', 'message_text', 'display_recipients']
+    fields = ['sender_alum', 'subject', 'message_text']
+    list_display = ['timestamp', 'sender_alum', 'display_recipients', 'subject', 'message_text']
     inlines = [ReceiptInline]
 
 @admin.register(models.Alum)
 class AlumAdmin(admin.ModelAdmin):
-    fields = ['uniqname', 'password', 'display_name', 'family_name', 'given_name']
-    list_display = ['uniqname', 'password', 'display_name', 'family_name', 'given_name']
-
-@admin.register(models.Thread)
-class ThreadAdmin(admin.ModelAdmin):
-    fields = ['subject']
-    list_display = ['subject']
+    fields = ['uniqname', 'display_name', 'family_name', 'given_name']
+    list_display = ['uniqname', 'display_name', 'family_name', 'given_name']

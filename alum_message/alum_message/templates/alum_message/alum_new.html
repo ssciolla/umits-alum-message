@@ -1,0 +1,43 @@
+{% extends 'alum_message/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<header>
+    <h2>Register New Alum</h2>
+</header>
+
+<!-- novalidate attribute required to render validation messages -->
+<form method="post" novalidate>
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="col-6">
+            {{ form.uniqname|as_crispy_field }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            {{ form.display_name|as_crispy_field }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            {{ form.family_name|as_crispy_field }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            {{ form.given_name|as_crispy_field }}
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-outline-success">Send</button>
+    &nbsp;<a class="btn btn-outline-secondary" href="{% url 'home' %}">Cancel</a>
+</form>
+
+{% endblock content %}

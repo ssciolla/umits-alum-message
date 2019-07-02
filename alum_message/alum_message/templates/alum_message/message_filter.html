@@ -1,0 +1,31 @@
+{% extends 'alum_message/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h2>Messages</h2>
+
+<div class="row">
+    <div class="col-sm-3">
+        <div class="px-2 py-2" style="border:1px solid #8E8D8A;">
+            <form action="" method="get">
+                {{ filter.form|crispy }}
+                <!-- add a submit button -->
+                <button type="submit" class="btn btn-outline-success">Lookup</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-sm-9">
+        {% for message in object_list %}
+        <!-- add a link to the detail page -->
+        <h3><a href="{% url 'message_detail' message.pk %}">Re: {{ message.subject }}</a></h3>
+        <div>
+            <p><b>Sender:</b> {{ message.sender_alum }}</p>
+            <p><b>Recipient(s):</b> {{ message.display_recipients }}</p>
+        </div>
+        {% empty %}
+        Select one or more filters relevant to your search and then click "Filter".
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
