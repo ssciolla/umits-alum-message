@@ -1,7 +1,6 @@
 import django_filters
 from alum_message.models import Message, Alum
 
-
 class MessageFilter(django_filters.FilterSet):
     sender_alum = django_filters.CharFilter(
         field_name='sender_alum__uniqname',
@@ -17,6 +16,4 @@ class MessageFilter(django_filters.FilterSet):
 
     class Meta:
         model = Message
-        # form = SearchForm
-        # fields [] is required, even if empty.
         fields = []

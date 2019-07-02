@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'alum_message.apps.AlumMessageConfig',
 
+    # additional applications installed
     'crispy_forms',
     'django_filters',
 ]
@@ -127,4 +128,3 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
-

@@ -1,10 +1,8 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.views import generic
 from django.urls import reverse, reverse_lazy
-from django.db.models import F, Q
 from django_filters.views import FilterView
-
 
 from .models import Message, Receipt, Alum
 from .forms import MessageForm, AlumForm
