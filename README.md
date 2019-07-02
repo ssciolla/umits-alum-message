@@ -67,7 +67,7 @@ The following resources were referenced while creating this application:
 - [Django documentation](https://docs.djangoproject.com/en/2.2/)
 - [SQLite documentation](https://www.sqlite.org/docs.html)
 - [django-filter documentation](https://django-filter.readthedocs.io/en/master/index.html)
-- [arwhyte/SI664-docs repository](https://github.com/arwhyte/SI664-docs): 
+- [arwhyte/SI664-docs repository](https://github.com/arwhyte/SI664-docs)
 
  I would like to acknowledge my indebtedness to my former instructor, Anthony Whyte, who provided extensive guidance, resources, and starter code during Fall 2018 as part of UMSI 664: Database Application Design. In particular, his assignments and documentation supplied jumping off points for using Bootstrap/CSS, django_filters, and crispy_forms. The resources he created are available in a public repository (see above).
  
