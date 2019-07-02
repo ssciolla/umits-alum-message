@@ -8,7 +8,21 @@
     <p>This application helps to connect University of Michigan alumni by making it simple to direct message one or more
     other alumni using only uniqnames.</p>
 
-    <p>Code for the project can be found at (Link goes here).</p>
+    <p>The following four views are accessible through the Navigation Bar above:</p>
+
+    <ul>
+      <li><a href="{% url 'message_filter' %}">View Messages</a> allows users to search messages for those sent to
+      or received by an alum with a given uniqname.</li>
+      <li><a href="{% url 'message_new' %}">Send Message</a> allows users to craft messages from and to alumni whose
+        uniqnames are already registered with the application.</li>
+      <li><a href="{% url 'alum_new' %}">New Alum</a> allows users to create a new alum record that can then be included
+        subsequently in a new message.</li>
+      <li><a href="{% url 'about' %}">About</a> provides some additional details about this project and gives some
+        acknowledgements.</li>
+    </ul>
+
+    <p>Code for the project can be found in a private <a href="https://github.com/ssciolla/umits-alum-message">
+      GitHub repository</a>.</p>
   </div>
 </div>
 {% endblock content %}
