@@ -8,32 +8,24 @@
     <h2>New Message</h2>
 </header>
 
-<!-- novalidate attribute required to render validation messages -->
-<form method="post" novalidate>
+<!-- novalidate attsribute required to render validation messages -->
+<form method="post" class="col-12" novalidate>
     {% csrf_token %}
 
     <div class="row">
-        <div class="col-6">
             {{ form.subject|as_crispy_field }}
-        </div>
     </div>
 
     <div class="row">
-        <div class="col-6">
             {{ form.sender_alum|as_crispy_field }}
-        </div>
     </div>
 
     <div class="row">
-        <div class="col-6">
             {{ form.recipients|as_crispy_field }}
-        </div>
     </div>
 
     <div class="row">
-        <div class="col-6">
             {{ form.message_text|as_crispy_field }}
-        </div>
     </div>
 
     <button type="submit" class="btn btn-outline-success">Send</button>
